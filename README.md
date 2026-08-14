@@ -60,9 +60,13 @@ kubectl rollout status deployment/kk-payments -n kijani-staging
 # Serverless chain
 cd serverless
 npm install -g serverless@3
+npm install
 cd kk-receipts && npm install && cd ..
 cd kk-processor && npm install && cd ..
 cd kk-notifier && npm install && cd ..
+
+# Create the receipts bucket in MinIO (required before kk-receipts can write)
+docker exec minio mc mb local/kijani-payments-receipts-staging
 ```
 
 **Known manual step (not yet IaC-managed):** Jenkins needs `kubectl` installed inside the container and a flattened kubeconfig copied to `/var/jenkins_home/.kube/config`, plus the container attached to Minikube's Docker network (`docker network connect minikube jenkins-local`). This is documented as a Production Gap -- see below.
