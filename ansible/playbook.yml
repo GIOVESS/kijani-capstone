@@ -1,0 +1,30 @@
+---
+- name: Configure kijani-staging environment
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    staging_namespace: kijani-staging
+    staging_db_host: kk-payments-db-staging.kijani-staging.svc.cluster.local
+
+  tasks:
+    - name: Confirm kijani-staging namespace exists
+      kubernetes.core.k8s:
+        api_version: v1
+        kind: Namespace
+        name: "{{ staging_namespace }}"
+        state: present
+
+    - name: Deploy kk-payments staging ConfigMap
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: ConfigMap
+          metadata:
+            name: kk-payments-config
+            namespace: "{{ staging_namespace }}"
+          data:
+            DB_HOST: "{{ staging_db_host }}"
+            NODE_ENV: staging
