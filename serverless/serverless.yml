@@ -22,3 +22,10 @@ functions:
       - httpApi:
           path: /internal/process-receipt
           method: post
+
+  notifyComplete:
+    handler: kk-notifier/handler.notifyComplete
+    events:
+      - httpApi:
+          path: /internal/notify-complete
+          method: post
