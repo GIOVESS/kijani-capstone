@@ -26,5 +26,9 @@
             name: kk-payments-config
             namespace: "{{ staging_namespace }}"
           data:
+            APP_PORT: "3001"
             DB_HOST: "{{ staging_db_host }}"
+            DB_PORT: "5432"
+            LOG_LEVEL: info
+            MAX_CONNECTIONS: "20"
             NODE_ENV: staging
