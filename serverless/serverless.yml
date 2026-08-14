@@ -1,8 +1,11 @@
 service: kijani-receipt-chain
 
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs20.x
   region: us-east-1
 
 functions:
@@ -11,4 +14,11 @@ functions:
     events:
       - httpApi:
           path: /receipts
+          method: post
+
+  processReceipt:
+    handler: kk-processor/handler.processReceipt
+    events:
+      - httpApi:
+          path: /internal/process-receipt
           method: post
