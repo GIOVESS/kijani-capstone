@@ -1,0 +1,14 @@
+service: kijani-receipt-chain
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+functions:
+  generateReceipt:
+    handler: kk-receipts/handler.generateReceipt
+    events:
+      - httpApi:
+          path: /receipts
+          method: post

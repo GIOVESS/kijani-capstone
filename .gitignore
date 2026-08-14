@@ -7,3 +7,6 @@
 
 # Ansible
 *.retry
+
+# Node
+node_modules/
