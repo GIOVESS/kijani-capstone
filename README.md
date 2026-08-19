@@ -106,3 +106,7 @@ Pipeline success criteria: `kubectl rollout status` returns exit 0 after every m
 - **The applying Terraform credential (local kubeconfig) has unscoped cluster-admin access**, not a purpose-scoped ServiceAccount -- flagged in the governance log Entry 2 as a least-privilege gap.
 - **No Prometheus alerting configured yet** -- Track A allows a log-based error-rate alternative (Week 7 pattern); not yet implemented in this repository as of this commit.
 - **Terraform state is local**, not backed by the MinIO S3-compatible backend used in earlier course weeks -- acceptable for a single-developer capstone build, not production-appropriate for a team.
+
+## Pipeline Demo Recording
+
+Live demo walkthrough (staging deploy, smoke test, approval gate, production deploy, serverless chain, AI governance log): https://www.loom.com/share/76a410868f254c069cc52a8e9cd1da96
