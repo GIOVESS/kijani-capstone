@@ -24,9 +24,6 @@ Entries follow the Week 10 eight-field format. Every entry names what the AI got
 
 ---
 
-## Entry 2: [placeholder — add a second entry, e.g. governance-checklist review of the Terraform module, or scope-doc drafting assistance]
-
-
 ## Entry 2: Six-point governance checklist applied to terraform/main.tf
 
 **Date:** 2026-08-14
